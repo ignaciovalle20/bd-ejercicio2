@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const personSchema = mongoose.Schema({
     ci : {
-        type: Number,
+        type: String,
     },
     nombre : {
         type: String,

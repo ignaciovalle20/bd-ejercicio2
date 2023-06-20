@@ -1,22 +1,12 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const getPersons = require('./controllers/controller');
 const connectDB = require('./server/db');
-const app = express();
-const port = 3000;
+require('@colors/colors');
+const { promptMenuPrincipal } = require('./menu');
 
 
-// Connect to MongoDB
+const main = async () => {
+    await connectDB();    
+    await promptMenuPrincipal();
+    process.exit();
+};
 
-connectDB();
-
-// Middleware
-app.use(express.json());
-
-// Routes
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-}
-);
-
-getPersons.getPersons();
+main();
